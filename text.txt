@@ -1,0 +1,47 @@
+Start
+|
+|--> Import necessary libraries
+|    |
+|    |--> cv2
+|    |--> mediapipe
+|    |--> pyautogui
+|    |--> sys
+|    |--> pip
+|
+|--> Initialize hand tracking module (MediaPipe Hands)
+|    |
+|    |--> Capture video from camera (cv2.VideoCapture)
+|         |
+|         |--> Loop while capturing frames
+|              |
+|              |--> Read frame from camera
+|              |    |
+|              |    |--> Flip the frame horizontally (cv2.flip)
+|              |    |
+|              |    |--> Convert BGR image to RGB (cv2.cvtColor)
+|              |         |
+|              |         |--> Process the frame with hand tracking model (capture_hands.process)
+|              |              |
+|              |              |--> Get hand landmarks
+|              |              |    |
+|              |              |    |--> Iterate through detected hands
+|              |              |         |
+|              |              |         |--> Draw landmarks on the frame (drawing_option.draw_landmarks)
+|              |              |         |
+|              |              |         |--> Get specific landmarks (x, y coordinates)
+|              |              |              |
+|              |              |              |--> Calculate mouse position based on hand movement
+|              |              |              |    |
+|              |              |              |    |--> Move mouse pointer (pyautogui.moveTo)
+|              |              |              |         |
+|              |              |              |         |--> Check for hand gesture (e.g., click)
+|              |              |              |              |
+|              |              |              |              |--> Perform mouse click (pyautogui.click)
+|              |              |              |              |
+|              |              |              |              |--> Output hand movement video with annotations (cv2.imshow)
+|              |              |              |
+|              |              |              |--> Check for key press to exit (cv2.waitKey)
+|              |
+|              |--> Release camera and destroy windows (camera.release, cv2.destroyAllWindows)
+|
+End
